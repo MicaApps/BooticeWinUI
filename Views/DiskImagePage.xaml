@@ -1,0 +1,110 @@
+<Page
+    x:Class="BooticeWinUI.Views.DiskImagePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock x:Uid="DiskImage_Title" Text="Disk Image Processing" Style="{StaticResource TitleTextBlockStyle}" Margin="0,0,0,20" />
+
+        <!-- Main Content -->
+        <TabView Grid.Row="1">
+            <TabViewItem x:Uid="DiskImage_Tab_VHD" Header="VHD/VHDX Management">
+                <TabViewItem.IconSource>
+                     <SymbolIconSource Symbol="SaveLocal" />
+                </TabViewItem.IconSource>
+                <StackPanel Spacing="20" Padding="10">
+                    
+                    <!-- File Selection -->
+                    <Grid ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Uid="DiskImage_File" Text="Image File:" VerticalAlignment="Center" />
+                        <TextBox x:Uid="DiskImage_PathBox" x:Name="VhdPathBox" Grid.Column="1" PlaceholderText="Select a .vhd or .vhdx file..." />
+                        <Button Grid.Column="2" Click="BrowseVhd_Click">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <SymbolIcon Symbol="OpenFile"/>
+                                <TextBlock x:Uid="DiskImage_Browse" Text="Open" />
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+
+                    <InfoBar x:Name="VhdInfoBar" IsOpen="False" IsClosable="True" />
+
+                    <!-- Operations -->
+                    <Grid ColumnSpacing="20" Margin="0,10,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Mount/Unmount -->
+                        <Border BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="4" Padding="15">
+                            <StackPanel Spacing="10">
+                                <TextBlock x:Uid="DiskImage_Mount" Text="Mount / Unmount" FontWeight="Bold" />
+                                <CheckBox x:Uid="DiskImage_ReadOnly" x:Name="ReadOnlyCheck" Content="Read Only" />
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <Button x:Uid="DiskImage_Attach" x:Name="AttachBtn" Content="Attach (Mount)" Click="Attach_Click" Style="{StaticResource AccentButtonStyle}" />
+                                    <Button x:Uid="DiskImage_Detach" x:Name="DetachBtn" Content="Detach (Unmount)" Click="Detach_Click" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Create New -->
+                        <Border Grid.Column="1" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="4" Padding="15">
+                            <StackPanel Spacing="10">
+                                <TextBlock x:Uid="DiskImage_Create" Text="Create New VHD/VHDX" FontWeight="Bold" />
+                                
+                                <Grid ColumnSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <NumberBox x:Name="SizeBox" x:Uid="DiskImage_Size" Header="Size" Value="1" Minimum="1" SpinButtonPlacementMode="Inline" />
+                                    <ComboBox x:Name="SizeUnitCombo" x:Uid="DiskImage_Unit" Header="Unit" SelectedIndex="1" VerticalAlignment="Bottom">
+                                        <ComboBoxItem Content="MB" />
+                                        <ComboBoxItem Content="GB" />
+                                    </ComboBox>
+                                </Grid>
+
+                                <Grid ColumnSpacing="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <ComboBox x:Name="FormatCombo" x:Uid="DiskImage_Format" Header="Format" SelectedIndex="0" HorizontalAlignment="Stretch">
+                                        <ComboBoxItem Content="VHD" />
+                                        <ComboBoxItem Content="VHDX" />
+                                    </ComboBox>
+                                    <ComboBox x:Name="TypeCombo" x:Uid="DiskImage_Type" Header="Type" SelectedIndex="0" Grid.Column="1" HorizontalAlignment="Stretch">
+                                        <ComboBoxItem Content="Fixed" />
+                                        <ComboBoxItem Content="Expandable" />
+                                    </ComboBox>
+                                </Grid>
+
+                                <Button x:Uid="DiskImage_CreateBtn" Content="Create" Click="Create_Click" HorizontalAlignment="Stretch" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </TabViewItem>
+            
+            <TabViewItem Header="IMG Processing (Coming Soon)" IsEnabled="False" />
+        </TabView>
+
+        <!-- Status Bar -->
+        <InfoBar x:Name="StatusInfoBar" Grid.Row="2" IsOpen="False" Margin="0,10,0,0" />
+    </Grid>
+</Page>

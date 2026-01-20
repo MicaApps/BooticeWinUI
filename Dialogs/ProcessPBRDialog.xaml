@@ -1,0 +1,53 @@
+<ContentDialog
+    x:Class="BooticeWinUI.Dialogs.ProcessPBRDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:BooticeWinUI.Models"
+    mc:Ignorable="d"
+    Title="Partition Boot Record (PBR)"
+    PrimaryButtonText="Close"
+    CloseButtonText="Cancel"
+    DefaultButton="Primary">
+
+    <StackPanel Spacing="15" MinWidth="450">
+        <TextBlock Text="Target Partition:" FontWeight="Bold" />
+        <ComboBox x:Name="PartitionCombo" HorizontalAlignment="Stretch" DisplayMemberPath="FileSystemDesc">
+            <ComboBox.ItemTemplate>
+                <DataTemplate x:DataType="models:PartitionEntry">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <TextBlock Text="{x:Bind Index}" Width="20" />
+                        <TextBlock Text="{x:Bind FileSystemDesc}" Width="150" />
+                        <TextBlock Text="{x:Bind SizeGB, Converter={StaticResource StringFormatConverter}, ConverterParameter='{}{0:N1} GB'}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock x:Name="CurrentPBRText" Text="Current PBR Type: Unknown" Foreground="{ThemeResource SystemControlForegroundAccentBrush}" />
+        
+        <RadioButtons Header="Operation">
+            <RadioButton Content="Backup PBR to file" IsChecked="True" x:Name="BackupRadio" />
+            <RadioButton Content="Restore PBR from file" x:Name="RestoreRadio" />
+            <RadioButton Content="Install BOOTMGR (Windows Vista/7/8/10/11) (FAT32)" x:Name="InstallBootmgrRadio" />
+            <RadioButton Content="Install NTLDR (Windows 2000/XP/2003)" IsEnabled="False" />
+        </RadioButtons>
+
+        <StackPanel x:Name="FileSection" Spacing="10" Visibility="Visible">
+            <TextBlock Text="File Path:" />
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="FilePathBox" PlaceholderText="Select a file..." />
+                <Button Content="..." Click="BrowseFile_Click" Grid.Column="1" />
+            </Grid>
+        </StackPanel>
+
+        <Button x:Name="ExecuteBtn" Content="Execute" HorizontalAlignment="Stretch" Click="ExecuteBtn_Click" Style="{StaticResource AccentButtonStyle}" />
+        
+        <InfoBar x:Name="ResultInfoBar" IsOpen="False" />
+    </StackPanel>
+</ContentDialog>

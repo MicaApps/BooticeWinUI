@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AppTitle.Title" xml:space="preserve">
+    <value>Bootice WinUI</value>
+  </data>
+  <data name="Nav_PhysicalDisk.Content" xml:space="preserve">
+    <value>物理磁盘</value>
+  </data>
+  <data name="Nav_DiskImage.Content" xml:space="preserve">
+    <value>磁盘镜像</value>
+  </data>
+  <data name="Nav_BCD.Content" xml:space="preserve">
+    <value>BCD 编辑</value>
+  </data>
+  <data name="Nav_UEFI.Content" xml:space="preserve">
+    <value>UEFI</value>
+  </data>
+  <data name="Nav_Utilities.Content" xml:space="preserve">
+    <value>实用工具</value>
+  </data>
+  
+  <!-- Physical Disk Page -->
+  <data name="PhysicalDisk_Title.Text" xml:space="preserve">
+    <value>物理磁盘管理</value>
+  </data>
+  <data name="PhysicalDisk_DiskSelection.Header" xml:space="preserve">
+    <value>目标磁盘:</value>
+  </data>
+  <data name="PhysicalDisk_Refresh.Label" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="PhysicalDisk_DiskInfo.Text" xml:space="preserve">
+    <value>磁盘信息</value>
+  </data>
+  <data name="PhysicalDisk_HexView.Text" xml:space="preserve">
+    <value>扇区十六进制视图 (前 512 字节)</value>
+  </data>
+  <data name="PhysicalDisk_MBR_Desc.Text" xml:space="preserve">
+    <value>处理磁盘的主引导记录</value>
+  </data>
+  <data name="PhysicalDisk_MBR_Btn.Content" xml:space="preserve">
+    <value>MBR 维护</value>
+  </data>
+  <data name="PhysicalDisk_PBR.Header" xml:space="preserve">
+    <value>分区引导记录 (PBR)</value>
+  </data>
+  <data name="PhysicalDisk_PBR_Desc.Text" xml:space="preserve">
+    <value>处理分区的引导记录</value>
+  </data>
+  <data name="PhysicalDisk_PBR_Btn.Content" xml:space="preserve">
+    <value>PBR 维护</value>
+  </data>
+  <data name="PhysicalDisk_Parts.Header" xml:space="preserve">
+    <value>分区管理</value>
+  </data>
+  <data name="PhysicalDisk_Parts_Desc.Text" xml:space="preserve">
+    <value>管理磁盘分区</value>
+  </data>
+  <data name="PhysicalDisk_Parts_Btn.Content" xml:space="preserve">
+    <value>分区管理</value>
+  </data>
+  <data name="PhysicalDisk_Sector.Header" xml:space="preserve">
+    <value>扇区编辑</value>
+  </data>
+  <data name="PhysicalDisk_Sector_Desc.Text" xml:space="preserve">
+    <value>查看或编辑扇区数据</value>
+  </data>
+  <data name="PhysicalDisk_Sector_Btn.Content" xml:space="preserve">
+    <value>读取</value>
+  </data>
+
+  <!-- Common -->
+  <data name="Common_Browse.Content" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="Common_SelectEntry.Text" xml:space="preserve">
+    <value>请选择一个条目进行编辑</value>
+  </data>
+  <data name="Common_Identifier.Header" xml:space="preserve">
+    <value>标识符 (Identifier)</value>
+  </data>
+
+  <data name="PhysicalDisk_SectorInput.PlaceholderText" xml:space="preserve">
+    <value>逻辑扇区号 (LBA)</value>
+  </data>
+
+  <!-- Disk Image Page -->
+  <data name="DiskImage_Title.Text" xml:space="preserve">
+    <value>磁盘镜像处理</value>
+  </data>
+  <data name="DiskImage_Tab_VHD.Header" xml:space="preserve">
+    <value>VHD/VHDX 管理</value>
+  </data>
+  <data name="DiskImage_File.Text" xml:space="preserve">
+    <value>镜像文件:</value>
+  </data>
+  <data name="DiskImage_PathBox.PlaceholderText" xml:space="preserve">
+    <value>选择 .vhd 或 .vhdx 文件...</value>
+  </data>
+  <data name="DiskImage_Browse.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="DiskImage_Mount.Text" xml:space="preserve">
+    <value>挂载 / 卸载</value>
+  </data>
+  <data name="DiskImage_ReadOnly.Content" xml:space="preserve">
+    <value>只读模式</value>
+  </data>
+  <data name="DiskImage_Attach.Content" xml:space="preserve">
+    <value>挂载 (Attach)</value>
+  </data>
+  <data name="DiskImage_Detach.Content" xml:space="preserve">
+    <value>卸载 (Detach)</value>
+  </data>
+  <data name="DiskImage_Create.Text" xml:space="preserve">
+    <value>创建新 VHD/VHDX</value>
+  </data>
+  <data name="DiskImage_Size.Header" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="DiskImage_Unit.Header" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="DiskImage_Format.Header" xml:space="preserve">
+    <value>格式</value>
+  </data>
+  <data name="DiskImage_Type.Header" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="DiskImage_CreateBtn.Content" xml:space="preserve">
+    <value>创建</value>
+  </data>
+
+  <!-- BCD Edit Page -->
+  <data name="Bcd_Title.Text" xml:space="preserve">
+    <value>BCD 编辑</value>
+  </data>
+  <data name="Bcd_System.Content" xml:space="preserve">
+    <value>系统 BCD (当前系统)</value>
+  </data>
+  <data name="Bcd_File.Content" xml:space="preserve">
+    <value>其他 BCD 文件</value>
+  </data>
+  <data name="Bcd_Add.Label" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="Bcd_Delete.Label" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="Bcd_Up.Label" xml:space="preserve">
+    <value>上移</value>
+  </data>
+  <data name="Bcd_Down.Label" xml:space="preserve">
+    <value>下移</value>
+  </data>
+  <data name="Bcd_Details.Text" xml:space="preserve">
+    <value>条目详情</value>
+  </data>
+  <data name="Bcd_Description.Header" xml:space="preserve">
+    <value>描述 (Description)</value>
+  </data>
+  <data name="Bcd_DeviceType.Header" xml:space="preserve">
+    <value>设备类型</value>
+  </data>
+  <data name="Bcd_DeviceFile.Header" xml:space="preserve">
+    <value>设备 / 文件</value>
+  </data>
+  <data name="Bcd_Path.Header" xml:space="preserve">
+    <value>启动文件 (Application Path)</value>
+  </data>
+  <data name="Bcd_Locale.Header" xml:space="preserve">
+    <value>语言 (Locale)</value>
+  </data>
+  <data name="Bcd_Advanced.Header" xml:space="preserve">
+    <value>高级选项</value>
+  </data>
+  <data name="Bcd_Save.Content" xml:space="preserve">
+    <value>保存当前条目</value>
+  </data>
+  
+  <data name="Bcd_FilePath.PlaceholderText" xml:space="preserve">
+    <value>选择 BCD 文件...</value>
+  </data>
+  <data name="Bcd_InheritGlobal.Content" xml:space="preserve">
+    <value>继承全局设置</value>
+  </data>
+  <data name="Bcd_AllowUnsigned.Content" xml:space="preserve">
+    <value>允许未签名驱动 (nointegritychecks)</value>
+  </data>
+  <data name="Bcd_Debug.Content" xml:space="preserve">
+    <value>调试模式 (debug)</value>
+  </data>
+  <data name="Bcd_SafeMode.Content" xml:space="preserve">
+    <value>安全模式 (safeboot)</value>
+  </data>
+  <data name="Bcd_WinPE.Content" xml:space="preserve">
+    <value>WinPE 模式 (winpe)</value>
+  </data>
+  
+  <data name="Bcd_DeviceType_Partition.Content" xml:space="preserve">
+    <value>分区 (Partition)</value>
+  </data>
+  <data name="Bcd_DeviceType_Ramdisk.Content" xml:space="preserve">
+    <value>内存盘 (Ramdisk)</value>
+  </data>
+  <data name="Bcd_DeviceType_File.Content" xml:space="preserve">
+    <value>文件 (File)</value>
+  </data>
+
+  <!-- UEFI Page -->
+  <data name="Uefi_Title.Text" xml:space="preserve">
+    <value>UEFI 启动管理</value>
+  </data>
+  <data name="Uefi_Note.Text" xml:space="preserve">
+    <value>注意：通过 bcdedit 编辑 UEFI 条目功能有限。请使用“上移”和“下移”更改启动顺序。</value>
+  </data>
+
+  <!-- Settings Page -->
+  <data name="Settings_Title.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Settings_Appearance.Text" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Settings_Theme_Title.Text" xml:space="preserve">
+    <value>应用主题</value>
+  </data>
+  <data name="Settings_Theme_Desc.Text" xml:space="preserve">
+    <value>选择要显示的应用主题</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>浅色</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>深色</value>
+  </data>
+  <data name="Settings_Theme_System.Content" xml:space="preserve">
+    <value>使用系统设置</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>关于此应用</value>
+  </data>
+  <data name="Settings_License.Content" xml:space="preserve">
+    <value>许可条款</value>
+  </data>
+  <data name="Settings_Privacy.Content" xml:space="preserve">
+    <value>隐私声明</value>
+  </data>
+  <data name="Settings_Feedback.Content" xml:space="preserve">
+    <value>发送反馈</value>
+  </data>
+
+  <data name="Uefi_Warning.Title" xml:space="preserve">
+    <value>UEFI 固件设置</value>
+  </data>
+  <data name="Uefi_Warning.Message" xml:space="preserve">
+    <value>这些设置将直接修改主板 NVRAM。不正确的修改可能导致系统无法启动。</value>
+  </data>
+  <data name="Uefi_Order.Text" xml:space="preserve">
+    <value>启动顺序</value>
+  </data>
+  <data name="Uefi_SetTop.Content" xml:space="preserve">
+    <value>设为第一启动项</value>
+  </data>
+
+  <!-- Utilities Page -->
+  <data name="Utilities_Title.Text" xml:space="preserve">
+    <value>实用工具</value>
+  </data>
+  <data name="Utilities_Tab_Grub.Header" xml:space="preserve">
+    <value>GRUB4DOS 菜单</value>
+  </data>
+  <data name="Utilities_Open.Text" xml:space="preserve">
+    <value>打开</value>
+  </data>
+  <data name="Utilities_Save.Text" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Utilities_Tab_Disk.Header" xml:space="preserve">
+    <value>磁盘工具</value>
+  </data>
+  <data name="Utilities_SectorOps.Text" xml:space="preserve">
+    <value>扇区操作</value>
+  </data>
+  <data name="Utilities_Caution.Title" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="Utilities_Caution.Message" xml:space="preserve">
+    <value>这些操作可能会永久破坏数据。</value>
+  </data>
+  <data name="Utilities_Fill.Text" xml:space="preserve">
+    <value>扇区填充 / 清除</value>
+  </data>
+  <data name="Utilities_Fill_Desc.Text" xml:space="preserve">
+    <value>用特定数据填充指定扇区范围。</value>
+  </data>
+  <data name="Utilities_Fill_Btn.Content" xml:space="preserve">
+    <value>打开填充对话框</value>
+  </data>
+</root>

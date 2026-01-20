@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36705.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooticeWinUI", "BooticeWinUI.csproj", "{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Debug|ARM64.Build.0 = Debug|ARM64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Debug|x64.ActiveCfg = Debug|x64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Debug|x64.Build.0 = Debug|x64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Debug|x86.ActiveCfg = Debug|x86
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Debug|x86.Build.0 = Debug|x86
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Release|ARM64.ActiveCfg = Release|ARM64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Release|ARM64.Build.0 = Release|ARM64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Release|x64.ActiveCfg = Release|x64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Release|x64.Build.0 = Release|x64
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Release|x86.ActiveCfg = Release|x86
+		{9FA8FEA6-7CC4-E45B-BDE4-22581ABA3672}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F699C690-90E4-4BA2-8E6A-35430F196459}
+	EndGlobalSection
+EndGlobal

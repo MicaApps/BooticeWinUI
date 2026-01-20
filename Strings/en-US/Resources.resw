@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AppTitle.Title" xml:space="preserve">
+    <value>Bootice WinUI</value>
+  </data>
+  <data name="Nav_PhysicalDisk.Content" xml:space="preserve">
+    <value>Physical Disk</value>
+  </data>
+  <data name="Nav_DiskImage.Content" xml:space="preserve">
+    <value>Disk Image</value>
+  </data>
+  <data name="Nav_BCD.Content" xml:space="preserve">
+    <value>BCD Edit</value>
+  </data>
+  <data name="Nav_UEFI.Content" xml:space="preserve">
+    <value>UEFI</value>
+  </data>
+  <data name="Nav_Utilities.Content" xml:space="preserve">
+    <value>Utilities</value>
+  </data>
+  
+  <!-- Physical Disk Page -->
+  <data name="PhysicalDisk_Title.Text" xml:space="preserve">
+    <value>Physical Disk Management</value>
+  </data>
+  <data name="PhysicalDisk_DiskSelection.Header" xml:space="preserve">
+    <value>Destination Disk:</value>
+  </data>
+  <data name="PhysicalDisk_Refresh.Label" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="PhysicalDisk_DiskInfo.Text" xml:space="preserve">
+    <value>Disk Information</value>
+  </data>
+  <data name="PhysicalDisk_HexView.Text" xml:space="preserve">
+    <value>Sector Hex View (First 512 Bytes)</value>
+  </data>
+  <data name="PhysicalDisk_MBR_Desc.Text" xml:space="preserve">
+    <value>Process MBR of the disk</value>
+  </data>
+  <data name="PhysicalDisk_MBR_Btn.Content" xml:space="preserve">
+    <value>Process MBR</value>
+  </data>
+  <data name="PhysicalDisk_PBR.Header" xml:space="preserve">
+    <value>Partition Boot Record</value>
+  </data>
+  <data name="PhysicalDisk_PBR_Desc.Text" xml:space="preserve">
+    <value>Process PBR of partition</value>
+  </data>
+  <data name="PhysicalDisk_PBR_Btn.Content" xml:space="preserve">
+    <value>Process PBR</value>
+  </data>
+  <data name="PhysicalDisk_Parts.Header" xml:space="preserve">
+    <value>Partition Management</value>
+  </data>
+  <data name="PhysicalDisk_Parts_Desc.Text" xml:space="preserve">
+    <value>Manage partitions</value>
+  </data>
+  <data name="PhysicalDisk_Parts_Btn.Content" xml:space="preserve">
+    <value>Parts Manage</value>
+  </data>
+  <data name="PhysicalDisk_Sector.Header" xml:space="preserve">
+    <value>Sector Edit</value>
+  </data>
+  <data name="PhysicalDisk_Sector_Desc.Text" xml:space="preserve">
+    <value>View/Edit sectors</value>
+  </data>
+  <data name="PhysicalDisk_Sector_Btn.Content" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  
+  <!-- Common -->
+  <data name="Common_Browse.Content" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="Common_SelectEntry.Text" xml:space="preserve">
+    <value>Select an entry to edit</value>
+  </data>
+  <data name="Common_Identifier.Header" xml:space="preserve">
+    <value>Identifier</value>
+  </data>
+  
+  <data name="PhysicalDisk_SectorInput.PlaceholderText" xml:space="preserve">
+    <value>LBA</value>
+  </data>
+
+  <!-- Disk Image Page -->
+  <data name="DiskImage_Title.Text" xml:space="preserve">
+    <value>Disk Image Processing</value>
+  </data>
+  <data name="DiskImage_Tab_VHD.Header" xml:space="preserve">
+    <value>VHD/VHDX Management</value>
+  </data>
+  <data name="DiskImage_File.Text" xml:space="preserve">
+    <value>Image File:</value>
+  </data>
+  <data name="DiskImage_PathBox.PlaceholderText" xml:space="preserve">
+    <value>Select a .vhd or .vhdx file...</value>
+  </data>
+  <data name="DiskImage_Browse.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="DiskImage_Mount.Text" xml:space="preserve">
+    <value>Mount / Unmount</value>
+  </data>
+  <data name="DiskImage_ReadOnly.Content" xml:space="preserve">
+    <value>Read Only</value>
+  </data>
+  <data name="DiskImage_Attach.Content" xml:space="preserve">
+    <value>Attach (Mount)</value>
+  </data>
+  <data name="DiskImage_Detach.Content" xml:space="preserve">
+    <value>Detach (Unmount)</value>
+  </data>
+  <data name="DiskImage_Create.Text" xml:space="preserve">
+    <value>Create New VHD/VHDX</value>
+  </data>
+  <data name="DiskImage_Size.Header" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="DiskImage_Unit.Header" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="DiskImage_Format.Header" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="DiskImage_Type.Header" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="DiskImage_CreateBtn.Content" xml:space="preserve">
+    <value>Create</value>
+  </data>
+
+  <!-- BCD Edit Page -->
+  <data name="Bcd_Title.Text" xml:space="preserve">
+    <value>BCD Edit</value>
+  </data>
+  <data name="Bcd_System.Content" xml:space="preserve">
+    <value>System BCD (Current System)</value>
+  </data>
+  <data name="Bcd_File.Content" xml:space="preserve">
+    <value>Other BCD file</value>
+  </data>
+  <data name="Bcd_Add.Label" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="Bcd_Delete.Label" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Bcd_Up.Label" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="Bcd_Down.Label" xml:space="preserve">
+    <value>Down</value>
+  </data>
+  <data name="Bcd_Details.Text" xml:space="preserve">
+    <value>Entry Details</value>
+  </data>
+  <data name="Bcd_Description.Header" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Bcd_DeviceType.Header" xml:space="preserve">
+    <value>Device Type</value>
+  </data>
+  <data name="Bcd_DeviceFile.Header" xml:space="preserve">
+    <value>Device / File</value>
+  </data>
+  <data name="Bcd_Path.Header" xml:space="preserve">
+    <value>Application Path</value>
+  </data>
+  <data name="Bcd_Locale.Header" xml:space="preserve">
+    <value>Locale</value>
+  </data>
+  <data name="Bcd_Advanced.Header" xml:space="preserve">
+    <value>Advanced Options</value>
+  </data>
+  <data name="Bcd_Save.Content" xml:space="preserve">
+    <value>Save Current Entry</value>
+  </data>
+  
+  <data name="Bcd_FilePath.PlaceholderText" xml:space="preserve">
+    <value>Select a BCD file...</value>
+  </data>
+  <data name="Bcd_InheritGlobal.Content" xml:space="preserve">
+    <value>Inherit Global Settings</value>
+  </data>
+  <data name="Bcd_AllowUnsigned.Content" xml:space="preserve">
+    <value>Allow unsigned drivers (nointegritychecks)</value>
+  </data>
+  <data name="Bcd_Debug.Content" xml:space="preserve">
+    <value>Debug mode (debug)</value>
+  </data>
+  <data name="Bcd_SafeMode.Content" xml:space="preserve">
+    <value>Safe mode (safeboot)</value>
+  </data>
+  <data name="Bcd_WinPE.Content" xml:space="preserve">
+    <value>WinPE mode (winpe)</value>
+  </data>
+  
+  <data name="Bcd_DeviceType_Partition.Content" xml:space="preserve">
+    <value>Partition</value>
+  </data>
+  <data name="Bcd_DeviceType_Ramdisk.Content" xml:space="preserve">
+    <value>Ramdisk</value>
+  </data>
+  <data name="Bcd_DeviceType_File.Content" xml:space="preserve">
+    <value>File</value>
+  </data>
+
+  <!-- UEFI Page -->
+  <data name="Uefi_Title.Text" xml:space="preserve">
+    <value>UEFI Boot Manager</value>
+  </data>
+  <data name="Uefi_Note.Text" xml:space="preserve">
+    <value>Note: Full editing of UEFI entries via bcdedit is limited. Use 'Up' and 'Down' to change boot order.</value>
+  </data>
+  
+  <!-- Settings Page -->
+  <data name="Settings_Title.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Settings_Appearance.Text" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="Settings_Theme_Title.Text" xml:space="preserve">
+    <value>App theme</value>
+  </data>
+  <data name="Settings_Theme_Desc.Text" xml:space="preserve">
+    <value>Select which app theme to display</value>
+  </data>
+  <data name="Settings_Theme_Light.Content" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Settings_Theme_Dark.Content" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Settings_Theme_System.Content" xml:space="preserve">
+    <value>Use system setting</value>
+  </data>
+  <data name="Settings_About.Text" xml:space="preserve">
+    <value>About this app</value>
+  </data>
+  <data name="Settings_License.Content" xml:space="preserve">
+    <value>License Terms</value>
+  </data>
+  <data name="Settings_Privacy.Content" xml:space="preserve">
+    <value>Privacy Statement</value>
+  </data>
+  <data name="Settings_Feedback.Content" xml:space="preserve">
+    <value>Send Feedback</value>
+  </data>
+  
+  <data name="Uefi_Warning.Title" xml:space="preserve">
+    <value>UEFI Firmware Settings</value>
+  </data>
+  <data name="Uefi_Warning.Message" xml:space="preserve">
+    <value>These settings modify the NVRAM of your motherboard. Incorrect changes may prevent your system from booting.</value>
+  </data>
+  <data name="Uefi_Order.Text" xml:space="preserve">
+    <value>Boot Order</value>
+  </data>
+  <data name="Uefi_SetTop.Content" xml:space="preserve">
+    <value>Set as First Boot Option</value>
+  </data>
+
+  <!-- Utilities Page -->
+  <data name="Utilities_Title.Text" xml:space="preserve">
+    <value>Utilities</value>
+  </data>
+  <data name="Utilities_Tab_Grub.Header" xml:space="preserve">
+    <value>GRUB4DOS Menu</value>
+  </data>
+  <data name="Utilities_Open.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Utilities_Save.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Utilities_Tab_Disk.Header" xml:space="preserve">
+    <value>Disk Utilities</value>
+  </data>
+  <data name="Utilities_SectorOps.Text" xml:space="preserve">
+    <value>Sector Operations</value>
+  </data>
+  <data name="Utilities_Caution.Title" xml:space="preserve">
+    <value>Caution</value>
+  </data>
+  <data name="Utilities_Caution.Message" xml:space="preserve">
+    <value>These operations can permanently destroy data.</value>
+  </data>
+  <data name="Utilities_Fill.Text" xml:space="preserve">
+    <value>Sector Fill / Wipe</value>
+  </data>
+  <data name="Utilities_Fill_Desc.Text" xml:space="preserve">
+    <value>Fill a range of sectors with a specific pattern.</value>
+  </data>
+  <data name="Utilities_Fill_Btn.Content" xml:space="preserve">
+    <value>Open Fill Dialog</value>
+  </data>
+</root>

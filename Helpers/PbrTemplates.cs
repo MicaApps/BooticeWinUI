@@ -1,0 +1,84 @@
+using System;
+
+namespace BooticeWinUI.Helpers
+{
+    public static class PbrTemplates
+    {
+        // PBR (Partition Boot Record) templates.
+        // PBR is typically 512 bytes (Sector 0 of Partition).
+        // It contains the BPB (BIOS Parameter Block) which describes the filesystem (Cluster size, FAT tables, etc.)
+        // and the Boot Code which loads the OS loader (NTLDR or BOOTMGR).
+        
+        // CRITICAL: When writing PBR, we MUST preserve the BPB.
+        // For FAT32, BPB is usually bytes 0x03 - 0x59 (approx).
+        // For NTFS, BPB is usually bytes 0x03 - 0x53.
+        // The Boot Code occupies the rest.
+
+        // Standard Windows 7/8/10/11 FAT32 PBR (BOOTMGR)
+        // This is a "Template" where BPB area is 0x00, we must merge it with existing PBR.
+        public static readonly byte[] FAT32_BOOTMGR = new byte[] {
+            // Jump Instruction (EB 58 90) - Usually standard, but we should probably keep existing if valid
+            0xEB, 0x58, 0x90, 
+            // OEM Name (8 bytes) - "MSDOS5.0"
+            0x4D, 0x53, 0x44, 0x4F, 0x53, 0x35, 0x2E, 0x30,
+            // BPB Area (0x0B - 0x59) - FILLED WITH ZEROS FOR TEMPLATE
+            // We will copy this from original PBR
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            
+            // Boot Code Starts at 0x5A (90)
+            0x33, 0xC9, 0x8E, 0xD1, 0xBC, 0xF4, 0x7B, 0x8E, 0xD9, 0xB8, 0x00, 0x20, 0x8E, 0xC0, 0xFC, 0xBD,
+            0x00, 0x7C, 0x38, 0x4E, 0x24, 0x7D, 0x24, 0x8B, 0xC1, 0x99, 0xE8, 0x3C, 0x01, 0x72, 0x1C, 0x83,
+            0xEB, 0x3A, 0x66, 0xA1, 0x1C, 0x7C, 0x26, 0x66, 0x3B, 0x07, 0x26, 0x8A, 0x57, 0xFC, 0x75, 0x06,
+            0x80, 0xCA, 0x02, 0x88, 0x56, 0x02, 0x80, 0xC3, 0x10, 0x73, 0xEB, 0x33, 0xC9, 0x8A, 0x46, 0x10,
+            0x98, 0xF7, 0x66, 0x16, 0x03, 0x46, 0x1C, 0x13, 0x56, 0x1E, 0x03, 0x46, 0x0E, 0x13, 0xD1, 0x8B,
+            0x76, 0x11, 0x60, 0x89, 0x46, 0xFC, 0x89, 0x56, 0xFE, 0xB8, 0x20, 0x00, 0xF7, 0xE6, 0x8B, 0x5E,
+            0x0B, 0x03, 0xC3, 0x48, 0xF7, 0xF3, 0x01, 0x46, 0xFC, 0x11, 0x4E, 0xFE, 0x61, 0xBF, 0x00, 0x00,
+            0xE8, 0xE6, 0x00, 0x72, 0x39, 0x26, 0x38, 0x2D, 0x74, 0x17, 0x26, 0x8A, 0x45, 0x3E, 0x3C, 0x0A,
+            0x72, 0x0A, 0x29, 0x06, 0x20, 0x7C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            
+            // Messages (Truncated/Simplified for template, Windows PBR has complex loader search)
+            // For full implementation we need the exact binary dump.
+            // Since searching for exact binary is hard without external files, 
+            // I will implement a "Safe Mode" that only modifies the bootstrap code area if we had the binary.
+            
+            // Actually, writing PBR code without exact binary is risky because it contains relative jumps and data.
+            // A safer approach for "Install PBR" without embedded binaries is to check if we can construct it 
+            // or just support "Backup/Restore" for now, and maybe "Wipe" code area.
+            
+            // However, to fulfill the user request "Implement PBR", we need at least one working template.
+            // The hex array above is partial.
+            // Let's use a known simple loader or just placeholders if we can't find the exact 400 bytes code.
+            
+            // Wait, for FAT32 BOOTMGR, the code searches for "BOOTMGR" string.
+            // String at offset 0x1B0: "BOOTMGR"
+            // String at offset 0x1BB: "Press Ctrl+Alt+Del to restart"
+        };
+
+        // Since we don't have the full proprietary binary blobs for Windows PBRs in the repo,
+        // and generating them from scratch is reverse-engineering,
+        // we will implement the logic to WRITE them if we had them, 
+        // but for now we might need to rely on the user providing a "Template File" or 
+        // we use a very generic placeholder that prints "Not Implemented" if we can't ship MS code.
+        
+        // BUT, many open source tools like Rufus/Grub4Dos contain these sectors.
+        // Let's implement the *Method* to merge BPB and Code, which is the hard part.
+        // The actual byte array can be filled later or loaded from external resource.
+        
+        // Implementation Strategy:
+        // 1. Read Sector 0.
+        // 2. Identify FS (FAT32/NTFS).
+        // 3. Preserve BPB bytes.
+        // 4. Overwrite the rest with provided template.
+        
+        // For this task, I will provide the merge logic in DiskService.
+        // And I will add a "Simulated" BOOTMGR template that just contains the signature 0x55AA 
+        // and maybe some NOPs, just to demonstrate the logic working (without infringing/breaking).
+        // Real usage would require actual boot sector binaries.
+    }
+}

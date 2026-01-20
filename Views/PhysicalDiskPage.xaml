@@ -1,0 +1,60 @@
+<Page
+    x:Class="BooticeWinUI.Views.PhysicalDiskPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:BooticeWinUI.Models"
+    mc:Ignorable="d">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Uid="PhysicalDisk_Title" Text="Destination Disk" Style="{StaticResource TitleTextBlockStyle}" Grid.Row="0" Margin="0,0,0,20"/>
+        
+        <StackPanel Grid.Row="1" Spacing="20">
+            <ComboBox x:Uid="PhysicalDisk_DiskSelection" x:Name="DiskComboBox" Header="Select a disk:" HorizontalAlignment="Stretch" 
+                      DisplayMemberPath="DisplayName" SelectionChanged="DiskComboBox_SelectionChanged">
+            </ComboBox>
+
+            <StackPanel Spacing="5">
+                <TextBlock x:Uid="PhysicalDisk_DiskInfo" Text="Disk Information:" Style="{StaticResource SubtitleTextBlockStyle}" />
+                <TextBlock x:Name="DiskInfoTextBlock" Text="Select a disk to view information" Style="{StaticResource BodyTextBlockStyle}" />
+            </StackPanel>
+
+            <Grid ColumnSpacing="10" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Button x:Uid="PhysicalDisk_MBR_Btn" Content="Process MBR" HorizontalAlignment="Stretch" Click="ProcessMBR_Click"/>
+                <Button x:Uid="PhysicalDisk_PBR_Btn" Content="Process PBR" HorizontalAlignment="Stretch" Click="ProcessPBR_Click" Grid.Column="1"/>
+                <Button x:Uid="PhysicalDisk_Parts_Btn" Content="Parts Manage" HorizontalAlignment="Stretch" Click="PartsManage_Click" Grid.Column="2"/>
+                <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="5">
+                    <TextBox x:Uid="PhysicalDisk_SectorInput" x:Name="SectorInput" PlaceholderText="LBA" Width="60" Text="0" />
+                    <Button x:Name="ReadSectorBtn" x:Uid="PhysicalDisk_Sector_Btn" Content="Read" Click="ReadSectorBtn_Click" HorizontalAlignment="Stretch" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
+        <InfoBar x:Name="StatusInfoBar" Grid.Row="2" Margin="0,20,0,0" IsOpen="False" />
+
+        <Grid Grid.Row="3" Margin="0,20,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Uid="PhysicalDisk_HexView" Text="Sector Hex View (First 512 Bytes)" Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,0,0,10"/>
+            <TextBox x:Name="HexDumpBox" Grid.Row="1" IsReadOnly="True" FontFamily="Consolas" AcceptsReturn="True" 
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="NoWrap"/>
+        </Grid>
+    </Grid>
+</Page>

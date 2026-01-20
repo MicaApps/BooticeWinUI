@@ -1,0 +1,40 @@
+<ContentDialog
+    x:Class="BooticeWinUI.Dialogs.ProcessMBRDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Master Boot Record (MBR)"
+    PrimaryButtonText="Close"
+    CloseButtonText="Cancel"
+    DefaultButton="Primary">
+
+    <StackPanel Spacing="15" MinWidth="400">
+        <TextBlock x:Name="CurrentMBRText" Text="Current MBR Type: Unknown" Foreground="{ThemeResource SystemControlForegroundAccentBrush}" />
+        
+        <RadioButtons Header="Operation">
+            <RadioButton Content="Backup MBR to file" IsChecked="True" x:Name="BackupRadio" />
+            <RadioButton Content="Restore MBR from file" x:Name="RestoreRadio" />
+            <RadioButton Content="Install Windows NT 5.x / 6.x MBR" x:Name="WindowsNTMBRRadio" />
+            <RadioButton Content="Install GRUB4DOS 0.4.5c / 0.4.6a MBR" IsEnabled="False" />
+            <RadioButton Content="Install PLoP Boot Manager" IsEnabled="False" />
+        </RadioButtons>
+
+        <StackPanel x:Name="FileSection" Spacing="10" Visibility="Visible">
+            <TextBlock Text="File Path:" />
+            <Grid ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="FilePathBox" PlaceholderText="Select a file..." />
+                <Button Content="..." Click="BrowseFile_Click" Grid.Column="1" />
+            </Grid>
+        </StackPanel>
+
+        <Button x:Name="ExecuteBtn" Content="Execute" HorizontalAlignment="Stretch" Click="ExecuteBtn_Click" Style="{StaticResource AccentButtonStyle}" />
+        
+        <InfoBar x:Name="ResultInfoBar" IsOpen="False" />
+    </StackPanel>
+</ContentDialog>

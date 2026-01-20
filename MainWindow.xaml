@@ -1,0 +1,47 @@
+<Window
+    x:Class="BooticeWinUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Bootice WinUI 3">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="Base"/>
+    </Window.SystemBackdrop>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="AppTitleBar" Height="32">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="16,0,0,0" Spacing="8">
+                <Image Source="/Assets/WindowIcon.ico" Width="16" Height="16" />
+                <TextBlock Text="Bootice WinUI 3" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+
+        <NavigationView x:Name="NavView" Grid.Row="1" PaneDisplayMode="Top" SelectionChanged="NavView_SelectionChanged" Loaded="NavView_Loaded"
+                        Background="Transparent">
+            <NavigationView.Resources>
+                <SolidColorBrush x:Key="NavigationViewTopPaneBackground" Color="Transparent" />
+                <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent" />
+            </NavigationView.Resources>
+            <NavigationView.MenuItems>
+            <NavigationViewItem x:Uid="Nav_PhysicalDisk" Content="Physical Disk" Tag="PhysicalDisk" Icon="ThreeBars" />
+            <NavigationViewItem x:Uid="Nav_DiskImage" Content="Disk Image" Tag="DiskImage" Icon="Save" />
+            <NavigationViewItem x:Uid="Nav_BCD" Content="BCD Edit" Tag="BCDEdit" Icon="Edit" />
+            <NavigationViewItem x:Uid="Nav_UEFI" Content="UEFI" Tag="UEFI" Icon="Setting" />
+            <NavigationViewItem x:Uid="Nav_Utilities" Content="Utilities" Tag="Utilities" Icon="Repair" />
+        </NavigationView.MenuItems>
+        <Frame x:Name="ContentFrame" />
+        </NavigationView>
+    </Grid>
+</Window>

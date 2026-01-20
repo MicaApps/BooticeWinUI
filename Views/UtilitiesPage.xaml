@@ -1,0 +1,94 @@
+<Page
+    x:Class="BooticeWinUI.Views.UtilitiesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <TextBlock x:Uid="Utilities_Title" Text="Utilities" Style="{StaticResource TitleTextBlockStyle}" Margin="0,0,0,20" />
+
+        <!-- Main Content -->
+        <TabView Grid.Row="1">
+            <TabViewItem x:Uid="Utilities_Tab_Grub" Header="GRUB4DOS Menu">
+                <TabViewItem.IconSource>
+                     <SymbolIconSource Symbol="Document" />
+                </TabViewItem.IconSource>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Toolbar -->
+                    <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                        <Button Click="GrubOpen_Click">
+                             <StackPanel Orientation="Horizontal" Spacing="8">
+                                 <SymbolIcon Symbol="OpenFile"/>
+                                 <TextBlock x:Uid="Utilities_Open" Text="Open" />
+                             </StackPanel>
+                        </Button>
+                        <Button Click="GrubSave_Click">
+                             <StackPanel Orientation="Horizontal" Spacing="8">
+                                 <SymbolIcon Symbol="Save"/>
+                                 <TextBlock x:Uid="Utilities_Save" Text="Save" />
+                             </StackPanel>
+                        </Button>
+                        <ComboBox x:Name="EncodingCombo" SelectedIndex="0" Width="120">
+                            <ComboBoxItem Content="UTF-8" Tag="utf8" />
+                            <ComboBoxItem Content="ANSI (GBK)" Tag="gbk" />
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!-- Editor -->
+                    <TextBox Grid.Row="1" x:Name="GrubEditor" AcceptsReturn="True" FontFamily="Consolas" 
+                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                             ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto" />
+                    
+                    <TextBlock Grid.Row="2" x:Name="GrubStatusText" Margin="0,5,0,0" Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
+                </Grid>
+            </TabViewItem>
+
+            <TabViewItem x:Uid="Utilities_Tab_Disk" Header="Disk Utilities">
+                <TabViewItem.IconSource>
+                     <SymbolIconSource Symbol="Setting" />
+                </TabViewItem.IconSource>
+                <StackPanel Spacing="20" Padding="10">
+                    <TextBlock x:Uid="Utilities_SectorOps" Text="Sector Operations" Style="{StaticResource SubtitleTextBlockStyle}" />
+                    
+                    <InfoBar x:Uid="Utilities_Caution" Severity="Warning" IsOpen="True" IsClosable="False" 
+                             Title="Caution" Message="These operations can permanently destroy data." />
+
+                    <Grid ColumnSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Sector Fill -->
+                        <Border BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" BorderThickness="1" CornerRadius="4" Padding="15">
+                            <StackPanel Spacing="10">
+                                <TextBlock x:Uid="Utilities_Fill" Text="Sector Fill / Wipe" FontWeight="Bold" />
+                                <TextBlock x:Uid="Utilities_Fill_Desc" Text="Fill a range of sectors with a specific pattern." Foreground="{ThemeResource SystemControlForegroundBaseMediumBrush}" />
+                                <Button x:Uid="Utilities_Fill_Btn" Content="Open Fill Dialog" Click="OpenFillDialog_Click" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+            </TabViewItem>
+        </TabView>
+
+        <!-- Status Bar -->
+        <InfoBar x:Name="StatusInfoBar" Grid.Row="2" IsOpen="False" Margin="0,10,0,0" />
+    </Grid>
+</Page>
